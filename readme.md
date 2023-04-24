@@ -32,8 +32,8 @@ chmod +x src/tortuguita.py
 
 ## 4. Resultados
 
-O resultado esperado é o seguinte:
+O resultado final esperado é o seguinte:
 
-<div>
+<center>
     <img src="/imgs/exemplo.png" width="200px" height="200px">
-</div>
+</center>
