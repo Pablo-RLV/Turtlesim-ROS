@@ -4,6 +4,11 @@
 
 O seguinte projeto foi desenvolvido durante o terceiro semestre do curso Engenharia da Computação no Inteli - Instituto de Tecnologia e Liderança. Seu objetivo é trazer aprendizado sobre o ROS - Robot Operating System, um framework de código aberto para desenvolvimento de robôs. Para isso, foi utilizado o simulador Turtlesim, que simula um ambiente robótico com uma tartaruga que pode ser controlada através de um script em Python.
 
+<a>
+    <video src="/media/play.mp4">
+</a>
+
+Link para o vídeo do YouTube: <https://youtube.com/shorts/icUqVEkYM6k?feature=share>
 ## 2. Instalação
 
 Para realizar a instalação do que será necessário para o prosseguimento desse projeto, siga os passos detalhados no readme desse projeto: <https://github.com/Murilo-ZC/Questoes-Trabalhos-Inteli-M6/tree/main/ponderada1>
@@ -35,5 +40,5 @@ chmod +x src/tortuguita.py
 O resultado final esperado é o seguinte:
 
 <center>
-    <img src="/imgs/exemplo.png" width="200px" height="200px">
+    <img src="/media/exemplo.png" width="200px" height="200px">
 </center>
