@@ -24,7 +24,7 @@ ros2 run turtlesim turtlesim_node
 2.1. Em outra janela do terminal, entre na pasta do projeto e execute o seguinte comando:
 
 ```bash
-chmod +x src/tortuguita.py
+chmod +x tortuguita.py
 ```
 
 2.2. Ainda na pasta do projeto, execute o seguinte comando:
