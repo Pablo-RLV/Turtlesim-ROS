@@ -7,6 +7,7 @@ O seguinte projeto foi desenvolvido durante o terceiro semestre do curso Engenha
 [![Turtlesim](https://youtube.com/shorts/icUqVEkYM6k?feature=share)](https://youtube.com/shorts/icUqVEkYM6k?feature=share)
 
 Link para o vídeo do YouTube: <https://youtube.com/shorts/icUqVEkYM6k?feature=share>
+
 ## 2. Instalação
 
 Para realizar a instalação do que será necessário para o prosseguimento desse projeto, siga os passos detalhados no readme desse projeto: <https://github.com/Murilo-ZC/Questoes-Trabalhos-Inteli-M6/tree/main/ponderada1>
@@ -40,3 +41,10 @@ O resultado final esperado é o seguinte:
 <center>
     <img src="/media/exemplo.png" width="200px" height="200px">
 </center>
+
+## 5. Features
+
+- [x] Movimentação da tartaruga
+- [x] Mudança de cor da linha desenhada pela tartaruga
+- [x] Mudança de cor do plano de fundo
+- [x] Formação de desenho personalizável
