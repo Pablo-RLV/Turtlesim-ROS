@@ -10,11 +10,11 @@ from turtlesim.srv import SetPen
 
 class Turtle(Node):
     def __init__(self):
-        super().__init__('turtle_controller')
-        self.twist_msg_ = Twist()
-        self.publisher_movement = self.create_publisher(Twist, 'turtle1/cmd_vel', 10)
-        self.timer_ = self.create_timer(1.0, self.move_turtle)
-        self.timer_ = self.create_timer(2.0, self.move_turtle_opposite)
+        super().__init__('turtle_controller') #nome do nó
+        self.twist_msg_ = Twist() #cria uma variável do tipo Twist
+        self.publisher_movement = self.create_publisher(Twist, 'turtle1/cmd_vel', 10) #cria um publisher
+        self.timer_ = self.create_timer(1.0, self.move_turtle) #cria um timer
+        self.timer_ = self.create_timer(2.0, self.move_turtle_opposite) #cria um timer que opera no intervalo do anterior
         self.rainbow = {'red': [255, 0, 0],
                         'orange': [255, 127, 0],
                         'yellow': [255, 255, 0],
@@ -22,32 +22,30 @@ class Turtle(Node):
                         'blue': [0, 0, 255],
                         'indigo': [75, 0, 130],
                         'violet': [143, 0, 255]
-                        }
+                        } #dicionário com as cores do arco-íris
         self.contador = 0
-        self.cli = self.create_client(SetParameters, "turtlesim/set_parameters")
-        while not self.cli.wait_for_service(timeout_sec=1.0):
+        self.cli = self.create_client(SetParameters, "turtlesim/set_parameters") #cria um cliente para o serviço set_parameters
+        while not self.cli.wait_for_service(timeout_sec=1.0): #espera o serviço estar disponível
             self.get_logger().info('service not available, waiting again...')
-        self.req = SetParameters.Request()
+        self.req = SetParameters.Request() #cria um request para o serviço set_parameters
 
-    def move_turtle(self):
+    def move_turtle(self): #função para mover a tartaruga
         self.contador += 1
-        if self.contador < 45:
+        if self.contador < 45: #condição para que a tartaruga se mova apenas 45 vezes
             self.twist_msg_.linear.x = 4.0
             self.twist_msg_.angular.z = 1.0
             self.publisher_movement.publish(self.twist_msg_)
             self.change_color()
     
-    def move_turtle_opposite(self):
+    def move_turtle_opposite(self): #função para mover a tartaruga no sentido oposto
         if self.contador < 45:
             self.twist_msg_.linear.x = -4.0
             self.twist_msg_.angular.z = 1.0
             self.publisher_movement.publish(self.twist_msg_)
-            if self.contador < 10:
-                self.color_line(255, 0, 0)
     
     def color_line(self, r, g, b):
-        client = self.create_client(SetPen, 'turtle1/set_pen')
-        while not client.wait_for_service(timeout_sec=1.0):
+        client = self.create_client(SetPen, 'turtle1/set_pen') #cria um cliente para o serviço set_pen
+        while not client.wait_for_service(timeout_sec=1.0): 
             self.get_logger().info('service not available, waiting again...')
         request = SetPen.Request()
         request.r = r
@@ -61,7 +59,7 @@ class Turtle(Node):
         else:
             pass
     
-    def change_color(self):
+    def change_color(self): #função para mudar a cor da linha
         if self.contador < 6:
             self.color_line(self.rainbow['red'][0], self.rainbow['red'][1], self.rainbow['red'][2])
         elif self.contador < 12:
@@ -76,14 +74,14 @@ class Turtle(Node):
             self.color_line(self.rainbow['indigo'][0], self.rainbow['indigo'][1], self.rainbow['indigo'][2])
         else:
             self.color_line(self.rainbow['violet'][0], self.rainbow['violet'][1], self.rainbow['violet'][2])
-        self.set_rgb(self.contador * 4,self.contador * 4, self.contador * 4)
+        self.set_rgb(self.contador * 4,self.contador * 4, self.contador * 4) #muda a cor do background
 
-    def set_rgb(self, r: int, g: int, b: int) -> None:
+    def set_rgb(self, r: int, g: int, b: int) -> None: #função para mudar a cor do background
         self.send_request("background_r", r)
         self.send_request("background_g", g)
         self.send_request("background_b", b)
 
-    def send_request(self, param_name, param_value):
+    def send_request(self, param_name, param_value): #função para envio do request
         if isinstance(param_value, float):
             val = ParameterValue(double_value=param_value, type=ParameterType.PARAMETER_DOUBLE)
         elif isinstance(param_value, int):
