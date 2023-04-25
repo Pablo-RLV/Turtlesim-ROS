@@ -48,3 +48,11 @@ O resultado final esperado é o seguinte:
 - [x] Mudança de cor da linha desenhada pela tartaruga
 - [x] Mudança de cor do plano de fundo
 - [x] Formação de desenho personalizável
+
+## 6. Extra
+
+Como adição extra, foi inserido o script em python "espira.py", que permite a criação de uma espiral colorida com a tartaruga. O processo de execução é o mesmo do outro script apresentado anteriormente. O resultado final esperado é o seguinte:
+
+<center>
+    <img src="/media/espira.png" width="200px" height="200px">
+</center>
